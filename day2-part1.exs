@@ -2,10 +2,10 @@ defmodule Game do
   def parse_input(input) do
     input
     |> String.split("\n")
-    |> Enum.filter(&(&1 != ""))
-    |> Enum.map(&parse_line/1)
-    |> Enum.filter(&valid_game?/1)
-    |> Enum.map(&get_id/1)
+    |> Stream.filter(&(&1 != ""))
+    |> Stream.map(&parse_line/1)
+    |> Stream.filter(&valid_game?/1)
+    |> Stream.map(&get_id/1)
     |> Enum.reduce(&Kernel.+/2)
   end
 
